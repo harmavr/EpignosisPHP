@@ -13,6 +13,6 @@ class Login extends Dbh
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $result ?: null;
     }
 }
