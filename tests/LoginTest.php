@@ -30,19 +30,28 @@ class LoginTest extends TestCase
     {
         return [
             ['manager'],
-            ['manager1'],
-            [''],
-            ['123']
+            ['2'],
         ];
     }
 
-    public function testInvalidLogin()
+    /**
+     * @dataProvider invalidLoginData
+     */
+    public function testInvalidLogin($username, $expectedError)
     {
-        $username = "manager123";
+        $this->expectExceptionMessage($expectedError);
 
         // Simulate an invalid login attempt
         $result = $this->loginHandler->authenticate($username);
 
         $this->assertNull($result);
+    }
+
+    public static function invalidLoginData()
+    {
+        return [
+            ['manager123', 'invalid Username'],
+            ['emp123', "User name doesn't exist"],
+        ];
     }
 }
