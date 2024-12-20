@@ -1,3 +1,12 @@
+<?php
+
+require_once '../errors/view/create_user.err.php';
+
+// it is needed for the function check_create_user_errors()
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +35,12 @@
 
         <button type="submit">Save</button>
     </form>
+
+    <div>
+        <?php
+        check_create_user_errors();
+        ?>
+    </div>
 
     <a href="manager_homepage.inc.php">Back</a>
 </body>

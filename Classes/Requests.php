@@ -31,7 +31,6 @@ class Requests extends Dbh
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            // Fetching the results as associative arrays
             $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $requests;
         }
@@ -62,12 +61,10 @@ class Requests extends Dbh
         $sql = "UPDATE requests SET status = :status WHERE id = :id";
         $stmt = $this->connect()->prepare($sql);
 
-        // Bind parameters
-        $status = 'approved'; // The new status value
+        $status = 'approved';
         $stmt->bindParam(':status', $status);
         $stmt->bindParam(':id', $id);
 
-        // Execute the query
         return $stmt->execute();
     }
 
@@ -76,12 +73,10 @@ class Requests extends Dbh
         $sql = "UPDATE requests SET status = :status WHERE id = :id";
         $stmt = $this->connect()->prepare($sql);
 
-        // Bind parameters
-        $status = 'rejected'; // The new status value
+        $status = 'rejected';
         $stmt->bindParam(':status', $status);
         $stmt->bindParam(':id', $id);
 
-        // Execute the query
         return $stmt->execute();
     }
 

@@ -32,6 +32,19 @@ class Users extends Dbh
         return null;
     }
 
+    public function getUserByName($username)
+    {
+        $sql = 'SELECT * FROM users WHERE username = :username';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        return null;
+    }
+
     public function createUser($username, $pwd, $email, $code, $role = 'employee')
     {
 
