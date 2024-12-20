@@ -44,16 +44,14 @@ $requests = $list->getRequests($id);
             <?php if (!empty($requests)) : ?>
                 <?php foreach ($requests as $request) : ?>
                     <?php
-                    $dates_requested = $request['date_request']; // e.g., "2024-12-01 / 2024-12-20"
-                    list($date_from, $date_to) = explode(" / ", $dates_requested); // Split by " / "
+                    $dates_requested = $request['date_request'];
+                    list($date_from, $date_to) = explode(" / ", $dates_requested);
 
-                    // Convert the strings to DateTime objects
                     $date_from_obj = new DateTime($date_from);
                     $date_to_obj = new DateTime($date_to);
 
-                    // Calculate the difference between the two dates
                     $interval = $date_from_obj->diff($date_to_obj);
-                    $total_days = $interval->days; // Get the total number of days
+                    $total_days = $interval->days;
                     ?>
                     <tr>
                         <td><?= htmlspecialchars($request['date_submitted']); ?></td>

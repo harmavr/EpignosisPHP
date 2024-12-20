@@ -1,7 +1,6 @@
 <?php
 
 require_once "Dbh.php";
-
 class Requests extends Dbh
 {
 
@@ -13,15 +12,12 @@ class Requests extends Dbh
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
 
-
-
         if ($stmt->rowCount() > 0) {
             $requests = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $requests;
         }
         return [];
     }
-
 
     public function getAllRequests()
     {
@@ -46,8 +42,6 @@ class Requests extends Dbh
         $user_id = $_SESSION['user']['id'];
         $sql = 'INSERT INTO requests(date_request, status, reason, user_id) VALUES (:dates_requested, :status, :reason, :user_id)';
         $stmt = $pdo->prepare($sql);
-
-
 
         $stmt->bindParam(":dates_requested", $dates_requested);
         $stmt->bindParam(":status", $status);

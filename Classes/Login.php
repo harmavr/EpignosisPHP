@@ -1,7 +1,6 @@
 <?php
 
 require_once "Dbh.php";
-
 class Login extends Dbh
 {
     public function authenticate($username)

@@ -1,6 +1,5 @@
 <?php
 
-
 require_once '../errors/view/create_user.err.php';
 
 session_start();

@@ -1,10 +1,8 @@
 <?php
 
 require_once "Dbh.php";
-
 class Users extends Dbh
 {
-
     public function getUsers()
     {
 

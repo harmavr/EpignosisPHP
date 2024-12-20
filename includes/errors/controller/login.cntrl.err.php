@@ -20,7 +20,6 @@ function is_username_wrong($result)
     }
 }
 
-
 function is_password_wrong($pwd, $hashPwd)
 {
     if (!password_verify($pwd, $hashPwd)) {
