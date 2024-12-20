@@ -1,8 +1,8 @@
 <?php
 
+
 require_once '../errors/view/create_user.err.php';
 
-// it is needed for the function check_create_user_errors()
 session_start();
 
 ?>
@@ -25,7 +25,7 @@ session_start();
         <input type="text" name="username" id="username">
 
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="text" name="email" id="email">
 
         <label for="employee_code">Employer's Code</label>
         <input type="number" name="employee_code" id="employee_code">
